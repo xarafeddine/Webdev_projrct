@@ -125,21 +125,32 @@ body {
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-  -ms-flex: 20%; /* IE10 */
-  flex: 20%;
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
   background-color: #f1f1f1;
   padding: 20px;
+  text-align: center;
+}
+.side img{
+    width: 60%;
+    margin:20px;
+}
+.Qty{
+    width: 200px;
+    height: 40px;
+    font-size: medium;
 }
 
 /* Main column */
 .main {   
-  -ms-flex: 80%; /* IE10 */
-  flex: 80%;
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
   background-color: white;
   padding: 20px;
 }
@@ -148,47 +159,15 @@ body {
 
 
 
-/* Float four columns side by side */
-.co {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-  margin: 10px 0px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.ro {margin: auto;}
-
-/* Clear floats after the columns */
-.ro:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .co {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
 
 
 
 /* cards */
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  
-  display: inline-block;
+
+  display: block;
   text-align: center;
   font-family: arial;
-}
-.card a{
-  color: #000;
-  text-decoration: none;
 }
 
 .price {
@@ -204,7 +183,7 @@ body {
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   font-size: 16px;
 }
 
@@ -282,135 +261,31 @@ footer span a:hover{
 
 <div class="row">
   <div class="side">
-    <h2>About Me</h2>
-    <h5>Photo of me:</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    <h3>More Text</h3>
-    <p>Lorem ipsum dolor sit ame.</p>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div>
-  </div>
-  <div class="main">
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Dec 7, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    <img src="css-3.png" alt="Denim Jeans" >
     <br>
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Sep 2, 2017</h5>
-    
-    
+    <input class="Qty" type="number" max="100" min="1" value="1" >
+  </div>
 
 
+
+
+  <div class="main">
+    
    
 
 
 
-    <div class="ro">
+ 
 
+    <div class="card">
+ 
+        <h3>Tailored Jeans</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit quisquam, tempore, hic esse officia neque placeat obcaecati sequi fugiat sapiente, saepe libero omnis. Odio suscipit, illum quidem aliquam vero quia.</p>
+        <p class="price">$19.99</p>
+        
+        <p><button>Add to Cart</button></p>
 
-      <div class="co">
-          <div class="card">
-              <a href="product.html">
-                <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-                <h3>Tailored Jeans</h3>
-              </a>
-              <p class="price">$19.99</p>
-              
-              <p><button>Add to Cart</button></p>
-          </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-    
-      
     </div>
-
 
 
 
