@@ -44,12 +44,21 @@ body {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 20px;
   text-decoration: none;
   font-size: 15px; 
 
 }
-
+.logo a{
+  font-family:'Ubuntu', sans-serif;
+  color: white ;
+  font-size : 50px;
+  font-weight:600;
+  text-decoration: none;
+}
+.logo a span{
+    color :  rgb(77, 27, 194);
+}
 
 /* Right-aligned link */
 .navbar a.right {
@@ -68,7 +77,7 @@ body {
   color: white;
 }
 
-
+/*
 .dropdown {
   float: left;
   overflow: hidden;
@@ -115,7 +124,7 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+*/
 
 
 
@@ -134,8 +143,15 @@ body {
   flex: 20%;
   background-color: #f1f1f1;
   padding: 20px;
+  text-align: center;
 }
-
+.cart_area{
+  width:100%;
+  
+  background-color: white;
+  
+  padding: 10px;
+}
 /* Main column */
 .main {   
   -ms-flex: 80%; /* IE10 */
@@ -149,11 +165,12 @@ body {
 
 
 /* Float four columns side by side */
-.co {
+.filterDiv {
   float: left;
   width: 25%;
   padding: 0 10px;
   margin: 10px 0px;
+  display: none;
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -168,7 +185,7 @@ body {
 
 /* Responsive columns */
 @media screen and (max-width: 600px) {
-  .co {
+  .filterDiv {
     width: 100%;
     display: block;
     margin-bottom: 20px;
@@ -214,9 +231,45 @@ body {
 
 
 
+
+
+
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
 /* Fake image, just for this example */
 .fakeimg {
-  background-color: #aaa;
+  background-image: url(banner1.png);
+  background-size: cover;
   width: 100%;
   padding: 20px;
 }
@@ -258,13 +311,18 @@ footer span a:hover{
 <body>
 
 <div class="header">
-  <h1>E-commerce WebSite</h1>
+  <div class ="logo"><a href="index.html"><span>E</span>-commerce<span>Site</span></a></div>
+  
   <p>A <b>responsive</b> website created by me.</p>
 </div>
 
 <div class="navbar">
-  <a href="index.html" class="active">Home</a>
-  <a href="#">Products</a>
+  
+  
+  <a href="index.html" class="active">Products</a>
+  <a href="" id="cart" >Cart | Panier</a>
+
+  <!--
   <div class="dropdown">
     <button class="dropbtn">Categories
       <i class="fa fa-caret-down"></i>
@@ -275,139 +333,107 @@ footer span a:hover{
       <a href="#">autre</a>
     </div>
   </div> 
-  
+  -->
+
+
   <a href="#" onclick="document.getElementById('id02').style.display='block'" class="right">LOGIN</a>
   <a href="#" onclick="document.getElementById('id01').style.display='block'" class="right">SIGNUP</a>
 </div>
 
 <div class="row">
   <div class="side">
-    <h2>About Me</h2>
-    <h5>Photo of me:</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    <h3>More Text</h3>
-    <p>Lorem ipsum dolor sit ame.</p>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div>
+    <h3>your cart</h3>
+    
+    <div class="cart_area">
+      <ul>
+        <li>product 1 selected</li>
+        <li>product 1 selected</li>
+        <li>product 1 selected</li>
+        <li>product 1 selected</li>
+      </ul>
+
+    </div>
+    
+
   </div>
   <div class="main">
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Dec 7, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    <h2>Welcome to E-commerceSite</h2>
+    <div class="fakeimg" style="height:300px;"></div>
+    <p>here you will find the best products on the market.</p>
+    <p></p>
     <br>
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Sep 2, 2017</h5>
     
-    
+    <br>
 
+    <h2>Filter DIV Elements</h2>
 
+    <div id="myBtnContainer">
+      <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+      <button class="btn" onclick="filterSelection('info')"> informatique</button>
+      <button class="btn" onclick="filterSelection('video')"> video</button>
+      <button class="btn" onclick="filterSelection('autre')"> autre</button>
    
-
-
+    </div>
+    <br>
+    <button onclick="sortSelection('asc')">Sort</button>
+    <br>
 
     <div class="ro">
 
 
-      <div class="co">
+      <div name="product_1" value="9.77" class="filterDiv info">9.77
           <div class="card">
               <a href="product.html">
-                <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-                <h3>Tailored Jeans</h3>
+                <img name="product_img" src="css-3.png" alt="Denim Jeans" style="width:100%">
+                <h3 name="product_title">Tailored Jeans</h3>
               </a>
-              <p class="price">$19.99</p>
+              <p name="product_type" class="type">informatique</p>
+              <p name="product_price" class="price">$09.77</p>
               
               <p><button>Add to Cart</button></p>
           </div>
       </div>
+      <div name="product_2" value="19.99" class="filterDiv info">19.99
 
-      <div class="co">
         <div class="card">
             <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
+              <img name="product_img" src="css-3.png" alt="Denim Jeans" style="width:100%">
+              <h3 name="product_title">Tailored Jeans</h3>
             </a>
-            <p class="price">$19.99</p>
+            <p name="product_type" class="type">informatique</p>
+            <p name="product_price" class="price">$19.99</p>
+            
+            <p><button>Add to Cart</button></p>
+        </div>
+      </div>
+      
+      <div name="product_3" value="22.88" class="filterDiv autre">22.88
+
+        <div class="card">
+            <a href="product.html">
+              <img name="product_img" src="css-3.png" alt="Denim Jeans" style="width:100%">
+              <h3 name="product_title">Tailored Jeans</h3>
+            </a>
+            <p name="product_type" class="type">autre</p>
+            <p name="product_price" class="price">$22.88</p>
             
             <p><button>Add to Cart</button></p>
         </div>
       </div>
 
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
+      <div name="product_3" value="02.88" class="filterDiv video">02.88
 
-      <div class="co">
         <div class="card">
             <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
+              <img name="product_img" src="css-3.png" alt="Denim Jeans" style="width:100%">
+              <h3 name="product_title">Tailored Jeans</h3>
             </a>
-            <p class="price">$19.99</p>
+            <p name="product_type" class="type">video</p>
+            <p name="product_price" class="price">$02.88</p>
             
             <p><button>Add to Cart</button></p>
         </div>
       </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="co">
-        <div class="card">
-            <a href="product.html">
-              <img src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3>Tailored Jeans</h3>
-            </a>
-            <p class="price">$19.99</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-    
       
     </div>
 
@@ -507,6 +533,119 @@ footer span a:hover{
       modal2.style.display = "none";
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  filterSelection("all")
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+      var arr=x[i].className.split(" ");
+      if (arr.indexOf("show") > -1) {
+        arr.splice(arr.indexOf("show"), 1);     
+      }
+      x[i].className = arr.join(" ");
+      
+      
+      if (x[i].className.indexOf(c) > -1) {
+        if (arr.indexOf("show") == -1)
+            x[i].className += " " +"show";
+          
+      }
+      
+      
+    }
+  }
+
+
+
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("myBtnContainer");
+  var btns = btnContainer.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("btn active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function sortSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "asc") {
+      var l=x.length,k,o;
+      
+      while(l-1>0){
+        k=0;
+        for (i=0;i<l;i++){
+          var t=parseFloat(x[i].childNodes[0].nodeValue);
+          var r=parseFloat(x[i+1].childNodes[0].nodeValue);
+          
+          if(t>r){
+            o=x[i];
+            x[i]=x[i+1];
+            x[i+1]=o;
+            k=i;alert(t);
+          }
+        }
+        if (k==0) break;
+        l=k;
+      }
+
+
+      
+    }
+    else{
+      var l=x.length,k,o;
+      
+      while(l-1>0){
+        k=0;
+        for (i=0;i<l;i++){
+          var t=x[i].Value;
+          var r=x[i+1].Value;
+          if(t<r){
+            o=x[i];
+            x[i]=x[i+1];
+            x[i+1]=o;
+            k=i;
+          }
+        }
+        if (k==0) break;
+        l=k;
+      }
+    }
+    
+  }
+
+  
+
+  
 </script>
 </body>
 
