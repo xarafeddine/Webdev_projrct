@@ -129,51 +129,31 @@ body {
 
 
 /* Column container */
-.row {  
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-}
+
+  
 
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
-.side {
-  -ms-flex: 20%; /* IE10 */
-  flex: 20%;
-  background-color: #f1f1f1;
-  padding: 20px 5px;
-  text-align: center;
-}
+
 .cart_area{
-  width:19%;
+  width:100%;
   
   background-color: white;
   
-  padding: 5px ;
-  position : fixed ;
-  top : 350px ;
-
-
-}
-.cart_area ul{
-  list-style: none;
-  float: left;
-}
-
-.cart_area li {
-  margin: 10px 0px;
-  
+  padding: 10px;
 }
 /* Main column */
 .main {   
-  -ms-flex: 80%; /* IE10 */
-  flex: 80%;
+
   background-color: white;
   padding: 20px;
 }
 
-
+.cart_bgr{
+    background-color: rgb(219, 214, 214);
+    padding: 10px;
+    margin: 10px;
+}
 
 
 
@@ -353,108 +333,43 @@ footer span a:hover{
   <a href="#" onclick="document.getElementById('id01').style.display='block'" class="right">SIGNUP</a>
 </div>
 
-<div class="row">
-  <div class="side">
-    
-    
-    <div class="cart_area">
-      <h3 align="center">your cart</h3>
-      
-      <ul>
+
   
-        <li><input type="checkbox"  value="product 1 checked" checked>product 1 checked</li>
-        <li><input type="checkbox"  value="product 1 checked" checked>product 1 checked</li>
-        <li><input type="checkbox"  value="product 1 checked" checked>product 1 checked</li>
-        <li><input type="checkbox"  value="product 1 checked" checked>product 1 checked</li>
-      </ul>
-
-    </div>
     
 
-  </div>
+  
   <div class="main">
-    <h2>Welcome to E-commerceSite</h2>
-    <div class="fakeimg" style="height:300px;"></div>
-    <p>here you will find the best products on the market.</p>
-    <p></p>
-    <br>
     
-    <br>
+    your cart:
+    <div class="cart_bgr">
+        <table cellpadding="5px" cellspacing="10px">
+            <tr>
+                <th>photo</th>
+                <th>name</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>subtotal</th>
+            </tr>
 
-    <h2>Filter DIV Elements</h2>
+            <tr>
+                <td>photo</td>
+                <td>HP</td>
+                <td>1200.34 DH</td>
+                <td><input class="Qty" onchange="clc_subtotal()" type="number" max="100" min="1" value="1" ></td>
+                <td id="subtotal"></td>
+                <td><button >delete</button></td>
+            </tr>
 
-    <div id="myBtnContainer">
-      <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-      <button class="btn" onclick="filterSelection('info')"> informatique</button>
-      <button class="btn" onclick="filterSelection('video')"> video</button>
-      <button class="btn" onclick="filterSelection('autre')"> autre</button>
-      
-      <div style="float:right">
-        Tri:
-        <button  class="btn 1" onclick="sortSelection('asc')">ascendant</button>
-        <button  class="btn 1" onclick="sortSelection('desc')">descendant</button>
-      </div>
+            <tr>
+                <td>photo</td>
+                <td>HPlkjl</td>
+                <td>1200.00 DH</td>
+                <td><input  onchange="clc_subtotal()" type="number" max="100" min="1" value="1" ></td>
+                <td id="subtotal"></td>
+                <td><button >delete</button></td>
+            </tr>
+        </table>
     </div>
-    <br>
-    
-    <br>
-
-    <ul class="ro">
-
-
-      <li name="product_1" value="9.77" class="filterDiv info">
-          <div class="card">
-              <a href="product.html">
-                <img name="product_img" src="css-3.png" alt="Denim Jeans" style="width:100%">
-                <h3 name="product_title">Tailored Jeans</h3>
-              </a>
-              <p name="product_type" class="type">informatique</p>
-              <p name="product_price" class="price">09.77 DH</p>
-              
-              <p><button>Add to Cart</button></p>
-          </div>
-      </li>
-      <li name="product_2" value="19.99" class="filterDiv info">
-        <div class="card">
-            <a href="product.html">
-              <img name="product_img" src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3 name="product_title">Tailored Jeans</h3>
-            </a>
-            <p name="product_type" class="type">informatique</p>
-            <p name="product_price" class="price">19.99 DH</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </li>
-      
-      <li name="product_3" value="22.88" class="filterDiv autre">
-        <div class="card">
-            <a href="product.html">
-              <img name="product_img" src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3 name="product_title">Tailored Jeans</h3>
-            </a>
-            <p name="product_type" class="type">autre</p>
-            <p name="product_price" class="price">22.88 DH</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </li>
-
-      <li name="product_3" value="02.88" class="filterDiv video">
-        <div class="card">
-            <a href="product.html">
-              <img name="product_img" src="css-3.png" alt="Denim Jeans" style="width:100%">
-              <h3 name="product_title">Tailored Jeans</h3>
-            </a>
-            <p name="product_type" class="type">video</p>
-            <p name="product_price" class="price">02.88 DH</p>
-            
-            <p><button>Add to Cart</button></p>
-        </div>
-      </il>
-      
-    </ul>
-
 
 
 
@@ -525,7 +440,7 @@ footer span a:hover{
 
 
   </div>
-</div>
+
 
 <footer>
     <span>Created By <a href="">xarafeddine</a> | &copy; 2020 All rights reserved.</span>
@@ -554,121 +469,11 @@ footer span a:hover{
 
 
 
-
-
-
-
-
-
-
-
-
-  filterSelection("all")
-  function filterSelection(c) {
-    var x, i;
-    x = document.getElementsByClassName("filterDiv");
-    if (c == "all") c = "";
-    for (i = 0; i < x.length; i++) {
-      var arr=x[i].className.split(" ");
-      if (arr.indexOf("show") > -1) {
-        arr.splice(arr.indexOf("show"), 1);     
-      }
-      x[i].className = arr.join(" ");
-      
-      
-      if (x[i].className.indexOf(c) > -1) {
-        if (arr.indexOf("show") == -1)
-            x[i].className += " " +"show";
-          
-      }
-      
-      
+    function clc_subtotal(){
+        var x=document.getElementsByClassName("Qty");
+        alert(x.value);
+        x.nextElementSibling.innerHTML=x.value*parseFloat(x.previousElementSibling.innerHTML);
     }
-  }
-
-
-
-  // Add active class to the current button (highlight it)
-  var btnContainer = document.getElementById("myBtnContainer");
-  var btns = btnContainer.getElementsByClassName("btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function(){
-      var current = document.getElementsByClassName("btn active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-
-      var current1 = document.getElementsByClassName("btn 1 active");
-      current1[0].className = current1[0].className.replace(" active", "");
-      this.className += " active";
-    });
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  function sortSelection(c) {
-    var x, i;
-    x = document.getElementsByClassName("price");
-    var l=x.length-1,k;
-    
-    if(c=="asc"){
-      while(l>0){
-        k=0;
-        for (i=0;i<l;i++){
-          var t=parseFloat(x[i].innerHTML);
-          var r=parseFloat(x[i+1].innerHTML);
-          
-          if(t>r){
-            document.getElementsByClassName("ro")[0].insertBefore(x[i + 1].parentNode.parentNode, x[i].parentNode.parentNode);
-            
-            k=i;
-          }
-        }
-        if(k==0) break;
-        l=k;
-        
-      }
-    }
-    else{
-      while(l>0){
-        k=0;
-        for (i=0;i<l;i++){
-          var t=parseFloat(x[i].innerHTML);
-          var r=parseFloat(x[i+1].innerHTML);
-          
-          if(t<r){
-            document.getElementsByClassName("ro")[0].insertBefore(x[i + 1].parentNode.parentNode, x[i].parentNode.parentNode);
-            
-            k=i;
-          }
-        }
-        if(k==0) break;
-        l=k;
-        
-      }
-
-    }
-      
-  
-      
-      
-    
-    
-    
-  }
-
-  
 
   
 </script>

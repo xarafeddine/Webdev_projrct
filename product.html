@@ -44,12 +44,21 @@ body {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 20px;
   text-decoration: none;
   font-size: 15px; 
 
 }
-
+.logo a{
+  font-family:'Ubuntu', sans-serif;
+  color: white ;
+  font-size : 50px;
+  font-weight:600;
+  text-decoration: none;
+}
+.logo a span{
+    color :  rgb(77, 27, 194);
+}
 
 /* Right-aligned link */
 .navbar a.right {
@@ -68,57 +77,6 @@ body {
   color: white;
 }
 
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 15px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #ddd;
-    color: black;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-
-
 /* Column container */
 .row {  
   display: -ms-flexbox; /* IE10 */
@@ -131,14 +89,14 @@ body {
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-  background-color: #f1f1f1;
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #ffffff;
   padding: 20px;
   text-align: center;
 }
 .side img{
-    width: 60%;
+    width: 80%;
     margin:20px;
 }
 .Qty{
@@ -149,9 +107,9 @@ body {
 
 /* Main column */
 .main {   
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-  background-color: white;
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: rgb(255, 255, 255);
   padding: 20px;
 }
 
@@ -159,15 +117,18 @@ body {
 
 
 
-
-
-
 /* cards */
 .card {
-
-  display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  
+  display: inline-block;
   text-align: center;
   font-family: arial;
+  padding: 10px 50px;
+}
+.card a{
+  color: #000;
+  text-decoration: none;
 }
 
 .price {
@@ -183,7 +144,7 @@ body {
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 50%;
+  width: 40%;
   font-size: 16px;
 }
 
@@ -193,9 +154,45 @@ body {
 
 
 
+
+
+
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
 /* Fake image, just for this example */
 .fakeimg {
-  background-color: #aaa;
+  background-image: url(banner1.png);
+  background-size: cover;
   width: 100%;
   padding: 20px;
 }
@@ -237,23 +234,16 @@ footer span a:hover{
 <body>
 
 <div class="header">
-  <h1>E-commerce WebSite</h1>
+  <div class ="logo"><a href="index.html"><span>E</span>-commerce<span>Site</span></a></div>
+  
   <p>A <b>responsive</b> website created by me.</p>
 </div>
 
 <div class="navbar">
-  <a href="index.html" class="active">Home</a>
-  <a href="#">Products</a>
-  <div class="dropdown">
-    <button class="dropbtn">Categories
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">informatique</a>
-      <a href="#">vedio</a>
-      <a href="#">autre</a>
-    </div>
-  </div> 
+  
+  
+  <a href="index.html" class="active">Products</a>
+  <a href="cart.html" id="cart" >Cart | Panier</a>
   
   <a href="#" onclick="document.getElementById('id02').style.display='block'" class="right">LOGIN</a>
   <a href="#" onclick="document.getElementById('id01').style.display='block'" class="right">SIGNUP</a>
@@ -263,7 +253,7 @@ footer span a:hover{
   <div class="side">
     <img src="css-3.png" alt="Denim Jeans" >
     <br>
-    <input class="Qty" type="number" max="100" min="1" value="1" >
+    
   </div>
 
 
@@ -281,8 +271,12 @@ footer span a:hover{
  
         <h3>Tailored Jeans</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit quisquam, tempore, hic esse officia neque placeat obcaecati sequi fugiat sapiente, saepe libero omnis. Odio suscipit, illum quidem aliquam vero quia.</p>
-        <p class="price">$19.99</p>
         
+        <br>
+        <br>
+        <br>
+        <p class="price">$19.99</p>
+        <input class="Qty" type="number" max="100" min="1" value="1" >
         <p><button>Add to Cart</button></p>
 
     </div>
